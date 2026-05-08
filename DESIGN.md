@@ -125,6 +125,63 @@
 - **SRS Card:** lg border-radius, elevated shadow, 가운데 정렬, 큰 텍스트
 - **Graph Node:** 원형, Amber fill(활성), Stone-400 fill(비활성), Teal fill(정답률 높음)
 
+## Gamification UI Guide
+
+게이미피케이션 요소는 Synapse의 "Warm Intellectual" 미학과 일관되어야 합니다. Duolingo 같은 밝고 장난스러운 게임 UI가 아닌, "학습 성장의 기록"처럼 느껴지는 절제된 표현을 사용합니다.
+
+### 원칙
+- **절제된 표현**: XP 바와 레벨은 조용하게 존재. 번쩍이는 효과나 과도한 색상 대비 금지.
+- **따뜻한 성취감**: Warm Amber를 성취 하이라이트로 사용. 축하는 짧고 품격 있게.
+- **도서관의 훈장**: 배지는 화려한 게임 아이콘이 아닌, 미니멀한 심볼 + Stone neutrals 배경.
+
+### XP Progress Bar
+- **배경**: Stone-200 #E7E5E4 (rounded-full)
+- **채움**: Warm Amber #D97706 → Primary Hover #B45309 그라디언트
+- **높이**: 8px (대시보드), 4px (컴팩트)
+- **텍스트**: Body Small (14px, Plus Jakarta Sans 400), Stone-500
+- **형식**: "1,200 / 1,500 XP" (현재/다음 레벨)
+- **애니메이션**: 값 변경 시 300ms ease-out 채움. 번쩍임 효과 없음.
+
+### Level Badge
+- **형태**: 원형 40px, Stone-100 배경, Stone-300 1px border
+- **레벨 숫자**: Fraunces 24px, Warm Amber #D97706
+- **칭호**: Body Small, Stone-600, 배지 아래 표시
+- **레벨업 시**: 원형이 Warm Amber border로 1초간 전환 후 원래로. 파티클은 Amber + Stone-300, 600ms, 최대 20개.
+
+### Badge Icons
+- **획득 상태**: Stone-800 아이콘 + Stone-100 배경, md border-radius
+- **미획득**: Stone-300 아이콘 + Stone-50 배경, 0.4 opacity
+- **크기**: 48px (갤러리), 32px (프로필 인라인)
+- **스타일**: 단색 라인 아이콘. 그라디언트/3D 효과 금지.
+
+### Streak Display
+- **화염 아이콘**: Warm Amber #D97706 (기본), 7일+ 시 Primary Hover #B45309
+- **숫자**: Fraunces 20px, Stone-800
+- **단위**: "일 연속" (Body Small, Stone-500)
+- **배치**: 대시보드 상단, 학습 통계 옆
+
+### Leaderboard
+- **배경**: Stone-50, Card 스타일 (md border-radius, subtle shadow)
+- **행 높이**: 48px, Stone-200 구분선
+- **내 순위**: Primary Light #FEF3C7 배경 하이라이트
+- **아바타**: 32px 원형, Stone-300 fallback
+- **순위 숫자**: Plus Jakarta Sans 600, Stone-800
+- **점수**: Body Small, Stone-500, 우측 정렬
+
+### 축하 모달 (레벨업/배지 획득)
+- **오버레이**: Stone-900 at 0.5 opacity
+- **모달**: Stone-50 배경, lg border-radius, 최대 360px 폭
+- **제목**: Fraunces 24px, Stone-900 (예: "레벨 5 달성!")
+- **칭호**: Plus Jakarta Sans 500, Warm Amber #D97706
+- **파티클**: Warm Amber + Muted Teal, 20개, 600ms, spring easing
+- **닫기**: 2초 후 자동 fade 또는 탭으로 닫기. 강제 대기 없음.
+
+### 금지 사항
+- Neon 색상, 그라디언트 배경, 번쩍이는 효과
+- 게임 스타일 사운드 효과 (학습 도구에 부적절)
+- 순위 하락 시 빨간색 강조 (부정적 동기부여 회피)
+- 과도한 숫자 표시 (XP, 레벨, 순위가 동시에 3개 이상 눈에 띄면 안 됨)
+
 ## Decisions Log
 | Date | Decision | Rationale |
 |------|----------|-----------|
@@ -133,3 +190,4 @@
 | 2026-05-07 | Plus Jakarta Sans 본문 폰트 | Inter/Roboto를 피하면서 따뜻한 geometric sans. DM Sans보다 개성 있음. |
 | 2026-05-07 | Warm Stone neutrals | Cool gray 대신 warm gray. "차가운 도구"가 아닌 "따뜻한 학습 공간" 느낌. |
 | 2026-05-07 | Comfortable spacing density | 학습은 정보 밀도보다 여유로운 공간이 중요. WMS와 반대 방향. |
+| 2026-05-08 | 절제된 게이미피케이션 UI | 게임 느낌이 아닌 "학습 성장 기록" 느낌. Warm Amber + Stone neutrals로 기존 미학과 일관. |
